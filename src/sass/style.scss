@@ -1,0 +1,22 @@
+@use "components";
+@use "keyframes";
+@use "mixins";
+@use "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: variables.$main-font;
+}
+
+body {
+  background-color: variables.$primary-color;
+  height: 100vh;
+  @include mixins.center-row
+}
