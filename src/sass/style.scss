@@ -1,7 +1,7 @@
-@use "components";
-@use "keyframes";
-@use "mixins";
-@use "variables";
+@use "components"as c;
+@use "keyframes"as k;
+@use "mixins"as m;
+@use "variables"as v;
 
 * {
   padding: 0;
@@ -12,11 +12,95 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  font-family: variables.$main-font;
 }
 
 body {
-  background-color: variables.$primary-color;
-  height: 100vh;
-  @include mixins.center-row
+  font-size: 1.6rem;
+  font-family: v.$main-font
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .7);
+
+  .logo-container {
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+
+    &__img {
+      width: 40px;
+      height: 40px;
+      margin: 0 .5rem;
+      object-fit: cover;
+    }
+
+    &__name {
+      font-family: v.$logo-font;
+      @include m.main-gradient;
+    }
+  }
+
+  &__icons {
+    margin-left: auto;
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+
+    .bucket {
+      margin-right: .5rem;
+
+      &__icon {
+        font-size: 1.8rem;
+        color: v.$primary-color;
+        position: relative;
+
+        .bucket__icon-items {
+          display: block;
+          font-size: 1.3rem;
+          position: absolute;
+          top: -10px;
+          right: -5px;
+          color: v.$secondary-color;
+        }
+      }
+    }
+
+    .burger {
+      margin-left: .5rem;
+      padding: 0 .8rem;
+
+      &__line1,
+      &__line2,
+      &__line3 {
+        width: 25px;
+        height: 2px;
+        background-color: v.$primary-color;
+        margin: .3rem 0;
+        transition: all .5s ease;
+      }
+    }
+  }
+
+  &__logos {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    @include m.row-center;
+    background-color: #f1f1f1;
+    padding: 1.5rem 0;
+  }
+
+  &__logo {
+    width: 63px;
+    height: 45px;
+    margin: 0 .5rem;
+    object-fit: cover;
+  }
 }

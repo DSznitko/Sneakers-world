@@ -1,10 +1,19 @@
-@mixin center-row {
+@mixin row-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin flex-column {
+@mixin column-center {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin main-gradient {
+  background: linear-gradient(141deg, #b665d6, #f158b5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
