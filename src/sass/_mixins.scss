@@ -17,3 +17,10 @@
   -webkit-background-clip: text;
   color: transparent;
 }
+
+@mixin jordan-gradient {
+  background: linear-gradient(141deg, #ff9262, #ff6dc6, #a9055c);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

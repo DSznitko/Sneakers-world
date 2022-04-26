@@ -1,5 +1,4 @@
-@use "components"as c;
-@use "keyframes"as k;
+@use "keyframes";
 @use "mixins"as m;
 @use "variables"as v;
 
@@ -27,6 +26,8 @@ body {
   display: flex;
   align-items: center;
   box-shadow: 0 5px 5px rgba(0, 0, 0, .7);
+  z-index: 30;
+  background-color: white;
 
   .logo-container {
     padding: .8rem;
@@ -62,7 +63,8 @@ body {
 
         .bucket__icon-items {
           display: block;
-          font-size: 1.3rem;
+          font-size: 1.5rem;
+          font-family: v.$main-font;
           position: absolute;
           top: -10px;
           right: -5px;
@@ -75,6 +77,7 @@ body {
       margin-left: .5rem;
       padding: 0 .8rem;
 
+
       &__line1,
       &__line2,
       &__line3 {
@@ -83,6 +86,7 @@ body {
         background-color: v.$primary-color;
         margin: .3rem 0;
         transition: all .5s ease;
+
       }
     }
   }
@@ -93,8 +97,9 @@ body {
     left: 0;
     top: 56px;
     @include m.row-center;
-    background-color: #f1f1f1;
+    background-color: v.$third-color;
     padding: 1.5rem 0;
+    z-index: 20;
   }
 
   &__logo {
@@ -103,4 +108,245 @@ body {
     margin: 0 .5rem;
     object-fit: cover;
   }
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: v.$third-color;
+  z-index: 10;
+  clip-path: circle(0% at 100% 1%);
+  @include m.column-center;
+  transition: all 1s ease;
+  overflow: hidden;
+  z-index: 90;
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2rem;
+  }
+
+  &__close-icon {
+    font-size: v.$xl;
+    color: v.$secondary-color;
+  }
+
+  &__link {
+    margin: .8rem 0;
+    padding: 0 .8rem;
+    text-decoration: none;
+    font-size: v.$lg;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    transition: .5s all ease;
+    transform: translateX(400px);
+    opacity: 0;
+
+    i {
+      padding: 0 .3rem;
+      color: v.$secondary-color
+    }
+
+
+
+  }
+
+
+  &__link-sneakers {
+    display: none;
+    transition: all .4s ease;
+  }
+
+  &__link-brand {
+    margin: .4rem 0;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    color: v.$secondary-color;
+    transition: all .4s ease;
+
+  }
+
+  &__link-brand:hover {
+    transform: translateX(10px);
+    opacity: .6;
+  }
+
+}
+
+.nav__link::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 0;
+  background: v.$main-gradient;
+  transition: .5s all ease;
+}
+
+.nav__link:hover::after {
+  height: 100%;
+}
+
+.nav__link:hover {
+  color: v.$secondary-color;
+}
+
+.nav__link-sneakers.active {
+  @include m.column-center
+}
+
+.nav.active {
+  clip-path: circle(150% at 100% 1%);
+}
+
+
+.slider {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &__text {
+    position: absolute;
+    @include m.main-gradient;
+    width: 100vw;
+    padding: 1rem;
+    font-weight: bold;
+    font-family: v.$main-font;
+    font-size: v.$xl;
+    top: 70%;
+    left: 20%;
+    z-index: 10;
+
+    .thin {
+      font-weight: 200;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 1s ease;
+    clip-path: polygon(100% 50%, 100% 50%, 75% 100%, 100% 50%, 100% 50%, 0% 0%);
+
+  }
+
+  &__slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+
+    &-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin: 0 .5rem;
+      background-color: v.$third-color;
+      transition: all 1s ease;
+    }
+  }
+
+}
+
+.slider__dots-dot.active {
+  background-color: v.$primary-color;
+}
+
+.slider__slide.active {
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 100%, 0 53%, 0% 0%);
+}
+
+.slider__slide1 {
+  background-image: url("/src/img/banner/banner1-small.jpg");
+}
+
+.slider__slide2 {
+  background-image: url("/src/img/banner/banner2-small.jpg");
+}
+
+.slider__slide3 {
+  background-image: url("/src/img/banner/banner3-small.jpg");
+}
+
+.new-product {
+  margin: 5rem 0;
+  min-height: 100vh;
+  overflow: hidden;
+
+  &__title {
+    @include m.jordan-gradient;
+    padding: 3rem 0;
+    text-align: center;
+    font-size: v.$lg;
+    font-weight: bold;
+    position: relative;
+  }
+
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .gallery__main-photo {
+      width: 90%;
+      max-width: 800px;
+      margin: 1rem;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .gallery__main-photo-img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+  }
+
+
+  &__small-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 95%;
+    padding: .8rem;
+  }
+
+  &__small-images-img {
+    width: 30%;
+    object-fit: cover;
+    padding: .4rem;
+  }
+}
+
+.current-photo {
+  animation: v.$currentImg 1s ease;
 }
