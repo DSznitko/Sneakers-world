@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "golive": "lt --port 5500"
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.50.1"
+  },
+  "dependencies": {
+    "localtunnel": "^2.0.2"
   }
 }

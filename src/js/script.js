@@ -10,13 +10,16 @@ const navLinks = document.querySelectorAll(".nav__link");
 
 const activeMenu = () => {
   nav.classList.add("active");
- gsap.to(navLinks,  {x: 0, opacity:1, stagger:.1, duration:.4, ease:"power4.in"})
+ gsap.to(navLinks,  {x: 0, opacity:1, stagger:.1, duration:.4, ease:"power4.in"});
+ document.body.style.overflow = "hidden";
 }
 
 
 const closeMenu = () => {
   nav.classList.remove("active");
-  gsap.to(navLinks,  {x: 400, opacity:0,  duration:.4, ease:"power4.in"})
+  gsap.to(navLinks,  {x: 400, opacity:0,  duration:.4, ease:"power4.in"});
+  document.body.style.overflow = "visible";
+  brandsContainer.classList.remove("active") 
 }
 
 const openLogosList = () => {
@@ -27,7 +30,8 @@ navLinks.forEach(link => {
   if(link.classList.contains("nav__link-brands")) {
     return
   }
-  link.addEventListener("click", closeMenu)
+  link.addEventListener("click", closeMenu);
+  brandsContainer.classList.remove("active")
 })
 
 showBrandsBtn.addEventListener("click", openLogosList)
@@ -101,6 +105,48 @@ gsap.fromTo(".gallery__main-photo-img", {opacity:0, y:200}, {opacity:1, y:0, dur
   trigger:".gallery__main-photo-img"
 }})
 
-gsap.fromTo(".new-product__small-images-img", {opacity:0, y:100, rotate:45}, {opacity:1, y:0, duration:.8,rotate:0, ease:"circ.out", stagger:.2, scrollTrigger:{
+gsap.fromTo(".new-product__small-images-img", {opacity:0, y:100, rotate:45}, {opacity:1, y:0, duration:.6,rotate:0, ease:"circ.out", stagger:.2, scrollTrigger:{
   trigger:".new-product__small-images-img"
 }})
+
+// SALE SECTION HANDLE 
+
+const saleProducts = document.querySelectorAll(".sale-product");
+
+gsap.fromTo(".sale__title", {opacity:0, x:60}, {opacity:1, x:0, duration: .5, ease:"power4.in", scrollTrigger:{
+  trigger: ".sale__title"
+}})
+
+saleProducts.forEach(shoe => {
+  gsap.fromTo(shoe, {opacity:0, x:-100, }, {opacity:1, x:0, duration:.6, ease:"circ.out", scrollTrigger:{
+    trigger: shoe,
+    start: "top 40%"
+  }})
+})
+
+// SALE MODAL ANIAMTION
+
+const saleImgs = document.querySelectorAll(".sale-product__img");
+const modalImg = document.querySelector(".img-container__img");
+const modal = document.querySelector(".modal");
+const closeModalBtn = document.querySelector(".img-container__close");
+
+const showModalImg = e => {
+  modal.classList.add("active")
+
+modalImg.src = e.target.src;
+modalImg.classList.add("active");
+ 
+}
+
+
+
+const closeModal = () => {
+  modal.classList.remove("active");
+  modalImg.classList.remove("active");
+}
+
+closeModalBtn.addEventListener("click", closeModal)
+saleImgs.forEach(img => {
+  img.addEventListener("click", showModalImg)
+})

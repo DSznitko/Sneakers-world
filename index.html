@@ -31,7 +31,7 @@
       </div>
     </div>
   </header>
-  <div class="header__logos">
+  <div class="header__logos" id="home">
     <img src="./src/img/logos/adidas.png" alt="adidas-logo" class="header__logo">
     <img src="./src/img/logos/jordan.png" alt="jordan-logo" class="header__logo">
     <img src="./src/img/logos/nike.png" alt="nike-logo" class="header__logo">
@@ -42,9 +42,10 @@
     <div class="nav__close">
       <i class="nav__close-icon fa-solid fa-xmark"></i>
     </div>
-    <a href="#" class="nav__link">Home</a>
+    <a href="#home" class="nav__link">Home</a>
     <a href="#new-product" class="nav__link">New Product</a>
-    <a href="#" class="nav__link">Sale</a>
+    <a href="#sale" class="nav__link">Sale</a>
+    <a href="#shop" class="nav__link">Shop</a>
     <a href="#" class="nav__link nav__link-brands">Sneakers<i class="fa-solid fa-sort-down"></i>
       <div class="nav__link-sneakers">
         <a href="#" class="nav__link-brand" id="adidas">Adidas</a>
@@ -104,7 +105,117 @@
       </div>
     </div>
   </section>
-
+  <section class="sale" id="sale">
+    <h2 class="sale__title">Top sales</h2>
+    <div class="sale__products">
+      <div class="sale-product">
+        <img src="src/img/card-shoes/addidas/originals.jpg" alt="adidas-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Adidas Originals</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$120</span>
+          <span class="sale-product__price-current">$90</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/addidas/samba.png" alt="adidas-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Adidas Samba</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$160</span>
+          <span class="sale-product__price-current">$120</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/nike/NikeAirMax90.png" alt="nike-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Nike Air-max 90</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$180</span>
+          <span class="sale-product__price-current">$135</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/nike/NikeDebuts.png" alt="nike-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Nike Debuts</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$200</span>
+          <span class="sale-product__price-current">$150</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/reebok/ReebokClassic.png" alt="reebok-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Reebok Classic</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$220</span>
+          <span class="sale-product__price-current">$165</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/reebok/ReebokNano.png" alt="reebok-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Reebok Nano</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$240</span>
+          <span class="sale-product__price-current">$180</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/puma/PumaGripFusion.png" alt="puma-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Puma Grip Fusion</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$260</span>
+          <span class="sale-product__price-current">$195</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/puma/PumaRS.png" alt="puma-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Puma RS</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$280</span>
+          <span class="sale-product__price-current">$210</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/jordan/airjordan5retro.jpg" alt="jordan-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Air Jordan Retro</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$300</span>
+          <span class="sale-product__price-current">$225</span>
+        </div>
+      </div>
+      <div class="sale-product">
+        <img src="src/img/card-shoes/jordan/jordan1.png" alt="jordan-shoe" class="sale-product__img">
+        <h3 class="sale-product__name">Air Jordan 1</h3>
+        <p class="sale-product__sale-txt">Sale</p>
+        <p class="sale-product__percent">25%</p>
+        <div class="sale-product__prices">
+          <span class="sale-product__price-old">$320</span>
+          <span class="sale-product__price-current">$240</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal">
+    <div class="modal__img-container">
+      <img src="src/img/card-shoes/addidas/originals.jpg" alt="modal-shoe" class="img-container__img">
+      <i class="img-container__close fa-solid fa-xmark"></i>
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
     integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
