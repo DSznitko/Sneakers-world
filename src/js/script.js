@@ -10,7 +10,7 @@ const navLinks = document.querySelectorAll(".nav__link");
 
 const activeMenu = () => {
   nav.classList.add("active");
- gsap.to(navLinks,  {x: 0, opacity:1, stagger:.1, duration:.4, ease:"power4.in"});
+ gsap.to(navLinks,  {x: 0, opacity:1, stagger:.1, duration:.2, ease:"power4.in"});
  document.body.style.overflow = "hidden";
 }
 
@@ -120,7 +120,7 @@ gsap.fromTo(".sale__title", {opacity:0, x:60}, {opacity:1, x:0, duration: .5, ea
 saleProducts.forEach(shoe => {
   gsap.fromTo(shoe, {opacity:0, x:-100, }, {opacity:1, x:0, duration:.6, ease:"circ.out", scrollTrigger:{
     trigger: shoe,
-    start: "top 40%"
+    start: "top 60%"
   }})
 })
 
@@ -139,8 +139,6 @@ modalImg.classList.add("active");
  
 }
 
-
-
 const closeModal = () => {
   modal.classList.remove("active");
   modalImg.classList.remove("active");
@@ -149,4 +147,12 @@ const closeModal = () => {
 closeModalBtn.addEventListener("click", closeModal)
 saleImgs.forEach(img => {
   img.addEventListener("click", showModalImg)
+})
+
+modal.addEventListener("click",e => {
+if(e.target.classList.contains("img-container__img")) {
+  return
+} else {
+  closeModal()
+}
 })
