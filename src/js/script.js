@@ -156,3 +156,17 @@ if(e.target.classList.contains("img-container__img")) {
   closeModal()
 }
 })
+
+// HERO SECTION ANIMATION HANDLE
+
+gsap.fromTo(".hero-section__title", {opacity:0, x:60}, {opacity:1, x:0, duration: .5, ease:"power4.in", scrollTrigger:{
+  trigger: ".hero-section__title"
+}});
+
+gsap.fromTo(".content__text", {scale:0}, {scale:1, duration: .5, ease:"elastic.inOut(1, 0.3)", delay:.5, scrollTrigger:{
+  trigger: ".content__text"
+}});
+
+gsap.fromTo(".features__list", {opacity:0, x:-60}, {opacity:1, x:0, duration: .5, stagger:.2, delay:.5, ease:"power4.in", scrollTrigger:{
+  trigger: ".content__text",
+}});

@@ -393,7 +393,7 @@ body {
     &__img {
       width: 100%;
       object-fit: cover;
-      height: 180px;
+      height: 150px;
     }
 
     &__name {
@@ -496,4 +496,78 @@ body {
 
 .img-container__img.active {
   animation: v.$currentImg 1s ease;
+}
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("/src/img/hero-section/heroImg-small.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+
+  &__title {
+    position: relative;
+    padding: 3rem 0;
+    text-align: center;
+    font-size: v.$lg;
+    font-weight: bold;
+    @include m.main-gradient;
+    z-index: 3;
+
+    .thin {
+      font-weight: 200;
+    }
+  }
+
+  &__content {
+    @include m.column-center;
+    padding: 2rem;
+  }
+
+  .content {
+    margin: 2rem 0;
+    z-index: 5;
+
+    &__text {
+      color: white;
+      font-weight: 300;
+      font-size: v.$md;
+      letter-spacing: 1px;
+
+      .important {
+        color: v.$secondary-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .features {
+    margin-top: 3rem;
+    z-index: 3;
+
+    &__list {
+      color: white;
+      list-style: none;
+      margin: 1rem 0;
+      font-size: v.$md;
+
+      i {
+        margin-right: .5rem;
+        color: v.$secondary-color;
+      }
+    }
+  }
+}
+
+.hero-section::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, .8));
+  z-index: 1;
 }
