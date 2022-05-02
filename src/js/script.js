@@ -126,7 +126,7 @@ saleProducts.forEach(shoe => {
 
 // SALE MODAL ANIAMTION
 
-const saleImgs = document.querySelectorAll(".sale-product__img");
+const productImgs = document.querySelectorAll(".product-img");
 const modalImg = document.querySelector(".img-container__img");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".img-container__close");
@@ -145,7 +145,7 @@ const closeModal = () => {
 }
 
 closeModalBtn.addEventListener("click", closeModal)
-saleImgs.forEach(img => {
+productImgs.forEach(img => {
   img.addEventListener("click", showModalImg)
 })
 
@@ -170,3 +170,37 @@ gsap.fromTo(".content__text", {scale:0}, {scale:1, duration: .5, ease:"elastic.i
 gsap.fromTo(".features__list", {opacity:0, x:-60}, {opacity:1, x:0, duration: .5, stagger:.2, delay:.5, ease:"power4.in", scrollTrigger:{
   trigger: ".content__text",
 }});
+
+// SHOP SECTION HANDLE
+
+const categoryBtns = document.querySelectorAll(".shop__button");
+const cardsShoes = document.querySelectorAll(".shop-card");
+
+const selectByCategory = (e) => {
+  categoryBtns.forEach(btn => {
+    btn.classList.remove("active")
+  })
+  const selected = e.target;
+  selected.classList.add("active")
+const selectedCategory = selected.dataset.name;
+cardsShoes.forEach(card => {
+  if(card.classList.contains(selectedCategory)) {
+card.classList.add("active")
+  } else {
+    card.style.display = "none"
+  } if(selectedCategory === "all") {
+    card.classList.add("active")
+  }
+
+  setTimeout(() => {
+if(card.classList.contains("active")) {
+  card.classList.remove("active");
+  card.style.display = "flex"
+}
+  },200)
+})
+
+}
+
+
+categoryBtns.forEach(btn => btn.addEventListener("click", selectByCategory))
