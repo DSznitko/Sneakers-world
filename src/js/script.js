@@ -12,6 +12,7 @@ const activeMenu = () => {
   nav.classList.add("active");
  gsap.to(navLinks,  {x: 0, opacity:1, stagger:.1, duration:.2, ease:"power4.in"});
  document.body.style.overflow = "hidden";
+ basketPage.classList.remove("appear");
 }
 
 
@@ -19,7 +20,7 @@ const closeMenu = () => {
   nav.classList.remove("active");
   gsap.to(navLinks,  {x: 400, opacity:0,  duration:.4, ease:"power4.in"});
   document.body.style.overflow = "visible";
-  brandsContainer.classList.remove("active") 
+  brandsContainer.classList.remove("active");
 }
 
 const openLogosList = () => {
@@ -42,7 +43,7 @@ closeMenuBtn.addEventListener("click", closeMenu);
 
 const slides = document.querySelectorAll(".slider__slide");
 const dots = document.querySelectorAll(".slider__dots-dot");
-const sliderTitle = document.querySelector(".thin")
+const sliderTitle = document.querySelector(".thin-slider")
 
 let index = 0;
 const sliderTexts = ["Prices", "Brands", "Quality"]
@@ -176,6 +177,10 @@ gsap.fromTo(".features__list", {opacity:0, x:-60}, {opacity:1, x:0, duration: .5
 const categoryBtns = document.querySelectorAll(".shop__button");
 const cardsShoes = document.querySelectorAll(".shop-card");
 
+gsap.fromTo(".shop__title", {opacity:0, x:60}, {opacity:1, x:0, duration: .5, ease:"power4.in", scrollTrigger:{
+  trigger: ".shop__title"
+}});
+
 const selectByCategory = (e) => {
   categoryBtns.forEach(btn => {
     btn.classList.remove("active")
@@ -204,3 +209,145 @@ if(card.classList.contains("active")) {
 
 
 categoryBtns.forEach(btn => btn.addEventListener("click", selectByCategory))
+
+const brandsLinks = document.querySelectorAll(".nav__link-brand");
+
+const getCurrentBrand = (e) => {
+  closeMenu()
+  const currentBrand = e.target.id;
+
+categoryBtns.forEach(btn => {
+  btn.classList.remove("active")
+  if(btn.id === currentBrand) {
+    btn.classList.add("active")
+  }
+})
+
+  cardsShoes.forEach(card => {
+    card.style.display = "none"
+    if(card.classList.contains(currentBrand)) {
+      card.classList.add("active");
+      card.style.display = "flex"
+    } 
+
+    setTimeout(() => {
+      if(card.classList.contains("active")) {
+        card.classList.remove("active");
+        card.style.display = "flex"
+      }
+        },200)
+  })
+}
+
+brandsLinks.forEach(link => link.addEventListener("click", getCurrentBrand));
+
+
+
+// HERO SECTION V2 ANIMATION HANDLE
+
+gsap.fromTo(".hero-sectionV2__title", {opacity:0, x:60}, {opacity:1, x:0, duration: .5, ease:"power4.in", scrollTrigger:{
+  trigger: ".hero-sectionV2__title"
+}});
+
+gsap.fromTo(".hero-sectionV2__content-txt", {scale:0}, {scale:1, duration: .5, ease:"elastic.inOut(1, 0.3)", delay:.5, scrollTrigger:{
+  trigger: ".hero-sectionV2__content-txt"
+}});
+
+gsap.fromTo(".hero-sectionV2__list-item", {opacity:0, x:-60}, {opacity:1, x:0, duration: .5, stagger:.2, delay:.5, ease:"power4.in", scrollTrigger:{
+  trigger: ".hero-sectionV2__content-txt",
+}});
+
+
+
+// BASKET HANDLE
+
+const basketBtn = document.querySelector(".bucket__link");
+const basketPage = document.querySelector(".client-bucket");
+basketBtn.addEventListener("click", () => {
+  basketPage.classList.toggle("appear")
+})
+
+// ADD ITEM TO BASKET HANDLE
+
+const addToBasketBtns = document.querySelectorAll(".btns__buy-btn");
+const newItemContainer = document.querySelector(".client-bucket__products-container");
+const totalAmmount = document.querySelector(".client-bucket__total-sum");
+const addedItemsNumber = document.querySelector(".bucket__icon-items");
+const addItemModal = document.querySelector(".add-modal");
+let totalSum = [0];
+let ID = 0;
+
+
+
+const addItem = (e) => {
+  ID++;
+const button = e.target;
+const productCard = button.parentElement.parentElement;
+const itemImg = productCard.children[0].src;
+const itemName = productCard.children[1].textContent;
+const prices = productCard.children[2];
+const itemPrice = parseFloat(prices.querySelector(".prices__current-price").textContent);
+const sizes = productCard.children[3];
+const itemSize = sizes.querySelector(".btns__sizes").value;
+
+const addedItemCard = document.createElement("div");
+addedItemCard.classList.add("client-bucket__product");
+addedItemCard.id = ID;
+addedItemCard.innerHTML = `
+<img src="${itemImg}" alt="${itemName}" class="client-bucket__product-img">
+<h3 class="client-bucket__product-name">${itemName}</h3>
+<div class="client-bucket__product-info">
+  <p class="client-bucket__product-size">Size: <span class="client-bucket__current-size">${itemSize}</span></p>
+  <span class="client-bucket__product-price">${itemPrice}$</span>
+</div>
+<button onclick="removeItem(${ID})" class="client-bucket__remove-product"><i class="fa-solid fa-trash-can"></i>Remove</button>
+</div>
+`
+newItemContainer.appendChild(addedItemCard)
+totalSum.push(itemPrice);
+addedItemsNumber.textContent = totalSum.length -1;
+const totalAmmountToPay = totalSum.reduce((a,b) => {
+  return a + b 
+})
+
+totalAmmount.textContent = `${totalAmmountToPay}$`;
+addItemModal.classList.add("active");
+
+
+
+setTimeout(() => {
+addItemModal.classList.remove("active")
+},1000);
+
+
+}
+
+addToBasketBtns.forEach(btn => btn.addEventListener("click", addItem));
+
+// CLOSE BASKET PAGE
+
+const closeBasketPageBtn = document.querySelector(".client-bucket__close ").addEventListener("click", () => {
+  basketPage.classList.remove("appear")
+})
+
+// REMOVE ITEM FROM BASKET
+
+
+const removeItem = (id) => {
+  const itemToRemove = document.getElementById(id);
+ const itemPrice = itemToRemove.children[2].querySelector(".client-bucket__product-price");
+ const priceToRemove = parseFloat(itemPrice.textContent);
+ const indexToRemove = totalSum.indexOf(priceToRemove);
+ totalSum.splice(1, indexToRemove);
+ const totalAmmountToPay = totalSum.reduce((a,b) => {
+  return a + b 
+})
+
+totalAmmount.textContent = `${totalAmmountToPay}$`;
+ addedItemsNumber.textContent = totalSum.length -1;
+
+ itemToRemove.remove()
+}
+ 
+  
+
