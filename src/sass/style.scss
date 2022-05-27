@@ -984,8 +984,8 @@ body {
   @include m.column-center;
   background-color: #dbaaee;
   border-radius: 10px;
-  padding: 1rem 2rem;
-  width: 80%;
+  padding: 2rem 2.5rem;
+  width: 70%;
   max-width: 500px;
   opacity: 0;
   transition: all .8s ease;
@@ -1004,7 +1004,136 @@ body {
   }
 
   &__text {
+    margin: .5rem 0;
     font-weight: 200;
     font-size: v.$md;
+  }
+}
+
+.footer {
+  position: relative;
+  min-height: 50vh;
+  background-color: rgba(0, 0, 0, .9);
+  padding: 5rem 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -50px;
+    width: 50%;
+    height: 40px;
+    background-color: white;
+    transform: skew(-55deg);
+    z-index: 2;
+  }
+
+  &__maps {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  &__brands-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__brands-title {
+    color: v.$primary-color;
+    margin-bottom: .6rem;
+    font-weight: bold;
+    font-size: v.$md;
+  }
+
+  &__brands-item {
+    padding: .4rem 0;
+    text-decoration: none;
+    font-size: v.$sm;
+    color: rgba(177, 177, 177, 0.699);
+    transition: all .8s ease;
+  }
+
+  &__brands-item:hover {
+    color: v.$secondary-color;
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__contact-title {
+    color: v.$primary-color;
+    margin-bottom: .6rem;
+    font-weight: bold;
+    font-size: v.$md;
+  }
+
+  &__contact-list-item {
+    padding: .4rem 0;
+    list-style: none;
+    font-size: v.$sm;
+    color: rgba(177, 177, 177, 0.699);
+    transition: all .8s ease;
+    cursor: pointer;
+  }
+
+  &__contact-list-item:hover {
+    color: v.$secondary-color;
+  }
+
+  &__contact-list-item i {
+    color: v.$secondary-color;
+    margin-right: .4rem;
+  }
+
+  &__social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__social-media-title {
+    color: v.$primary-color;
+    margin-bottom: .6rem;
+    font-weight: bold;
+    font-size: v.$md;
+  }
+
+  &__social-media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__social-media-item {
+    padding: 0 .7rem;
+    list-style: none;
+    font-size: v.$md;
+    color: rgba(177, 177, 177, 0.699);
+    transition: all .8s ease;
+    cursor: pointer;
+    transition: all .8s ease;
+  }
+
+  &__social-media-item:hover {
+    color: v.$secondary-color;
+    transform: scale(1.1);
+  }
+
+  &__copy {
+    color: white;
+    text-align: center;
+    margin-top: 3rem;
+    font-size: v.$sm;
+  }
+
+  &__copy-brand {
+    font-weight: 200;
   }
 }
