@@ -45,11 +45,21 @@ body {
       height: 40px;
       margin: 0 .5rem;
       object-fit: cover;
+
+      @media(min-width: 1024px) {
+        width: 60px;
+        height: 60px;
+        margin-left: 2rem;
+      }
     }
 
     &__name {
       font-family: v.$logo-font;
       @include m.main-gradient;
+
+      @media(min-width: 1024px) {
+        font-size: v.$lg;
+      }
     }
   }
 
@@ -59,6 +69,11 @@ body {
     display: flex;
     align-items: center;
 
+    @media(min-width: 1024px) {
+      padding: 1.5rem;
+      margin-right: 2rem;
+    }
+
     .bucket {
       margin-right: .5rem;
 
@@ -66,6 +81,16 @@ body {
         font-size: 1.8rem;
         color: v.$primary-color;
         position: relative;
+
+        @media(min-width: 1024px) {
+          font-size: v.$lg;
+          cursor: pointer;
+          transition: all .8s ease;
+
+          &:hover {
+            color: v.$secondary-color;
+          }
+        }
 
         .bucket__icon-items {
           display: block;
@@ -76,6 +101,11 @@ body {
           right: -5px;
           color: v.$secondary-color;
 
+          @media(min-width: 1024px) {
+            font-size: v.$lg;
+            top: -18px;
+          }
+
         }
       }
     }
@@ -84,6 +114,7 @@ body {
       margin-left: .5rem;
       padding: 0 .8rem;
       overflow: hidden;
+      cursor: pointer;
 
 
       &__line1,
@@ -93,7 +124,13 @@ body {
         height: 2px;
         background-color: v.$primary-color;
         margin: .3rem 0;
-        transition: all .5s ease;
+        transition: all .8s ease;
+
+        @media(min-width: 1024px) {
+          width: 30px;
+          height: 3px;
+          padding: 0 1rem;
+        }
 
       }
     }
@@ -109,6 +146,10 @@ body {
     padding: 1.2rem 0;
     z-index: 20;
     overflow: hidden;
+
+    @media(min-width: 1024px) {
+      top: 76px;
+    }
   }
 
   &__logo {
@@ -236,6 +277,13 @@ body {
     left: 20%;
     z-index: 10;
 
+    @media(min-width: 1024px) {
+      font-size: v.$max-size;
+      top: 60%;
+      left: 30%;
+
+    }
+
     .thin-slider {
       font-weight: 200;
     }
@@ -272,6 +320,10 @@ body {
     z-index: 10;
     display: flex;
 
+    @media(min-width: 1024px) {
+      bottom: 15%;
+    }
+
     &-dot {
       width: 20px;
       height: 20px;
@@ -279,6 +331,12 @@ body {
       margin: 0 .5rem;
       background-color: v.$third-color;
       transition: all 1s ease;
+
+      @media(min-width: 1024px) {
+        width: 25px;
+        height: 25px;
+        margin: 0 1.2rem;
+      }
     }
   }
 
@@ -294,20 +352,37 @@ body {
 
 .slider__slide1 {
   background-image: url("/src/img/banner/banner1-small.jpg");
+
+  @media(min-width: 1024px) {
+    background-image: url("/src/img/banner/banner1-big.jpg");
+  }
 }
 
 .slider__slide2 {
   background-image: url("/src/img/banner/banner2-small.jpg");
+
+  @media(min-width: 1024px) {
+    background-image: url("/src/img/banner/banner2-big.jpg");
+  }
 }
 
 .slider__slide3 {
   background-image: url("/src/img/banner/banner3-small.jpg");
+
+  @media(min-width: 1024px) {
+    background-image: url("/src/img/banner/banner3-big.jpg");
+  }
 }
 
 .new-product {
   margin: 5rem 0;
   min-height: 100vh;
   overflow: hidden;
+
+  @media(min-width: 1024px) {
+    margin: 10rem 0;
+    min-height: 60vh;
+  }
 
   &__title {
     @include m.jordan-gradient;
@@ -331,12 +406,29 @@ body {
       position: relative;
       z-index: 10;
       overflow: hidden;
+
+      @media(min-width: 768px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
     .gallery__main-photo-img {
       width: 100%;
       max-height: 100%;
       object-fit: cover;
+
+      @media(min-width: 768px) {
+        width: 70%;
+        margin-bottom: 2rem;
+        height: 300px;
+      }
+
+      @media(min-width: 1024px) {
+        width: 90%;
+        height: 430px;
+      }
     }
 
   }
@@ -356,6 +448,12 @@ body {
     height: 150px;
     object-fit: cover;
     padding: .4rem;
+
+    @media(min-width: 1024px) {
+      height: 220px;
+      width: 40%;
+      padding: .4rem 1rem;
+    }
   }
 }
 
@@ -397,6 +495,10 @@ body {
     max-width: 400px;
     margin: 3rem 1rem;
 
+    @media(min-width: 1024px) {
+      margin: 3rem 2rem;
+    }
+
     &__img {
       width: 100%;
       object-fit: cover;
@@ -404,6 +506,16 @@ body {
 
       @media(min-width: 400px) {
         height: 200px;
+      }
+
+      @media(min-width: 1024px) {
+        height: 220px;
+        cursor: pointer;
+        transition: all .8s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
 
@@ -496,6 +608,16 @@ body {
     @media(min-width: 400px) {
       height: 230px;
     }
+
+    @media(min-width: 768px) {
+      height: 430px;
+      width: 95%;
+    }
+
+    @media(min-width: 1024px) {
+      width: 90%;
+      height: 550px;
+    }
   }
 
   .img-container__close {
@@ -527,6 +649,13 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 
+  @media(min-width: 1024px) {
+    margin: 10rem 0;
+    min-height: 70vh;
+    background-image: url("/src/img/hero-section/heroImg-big.jpg");
+  }
+
+
   &__title {
     position: relative;
     padding: 3rem 0;
@@ -536,6 +665,15 @@ body {
     font-weight: bold;
     @include m.main-gradient;
     z-index: 3;
+
+    @media(min-width: 768px) {
+      margin-top: 7rem;
+    }
+
+    @media(min-width: 1024px) {
+      margin-top: 10rem;
+    }
+
 
     .thin {
       font-weight: 200;
@@ -557,6 +695,16 @@ body {
       font-size: v.$md;
       letter-spacing: 1px;
 
+      @media(min-width: 768px) {
+        margin: 4rem 0;
+        padding: 0 6rem;
+      }
+
+      @media(min-width: 1024px) {
+        padding: 0 20rem;
+      }
+
+
       .important {
         color: v.$secondary-color;
         font-weight: bold;
@@ -568,6 +716,10 @@ body {
     margin-top: 3rem;
     z-index: 3;
     padding: 4rem 1rem;
+
+    @media(min-width: 768px) {
+      margin-top: 8rem;
+    }
 
     &__list {
       color: white;
@@ -638,6 +790,7 @@ body {
     border: 2px solid v.$primary-color;
     border-radius: 10px;
     transition: all .4s ease;
+    cursor: pointer;
   }
 
   &__button.active {
@@ -668,6 +821,10 @@ body {
     max-width: 400px;
     margin: 3rem 1rem;
 
+    @media(min-width: 1024px) {
+      margin: 3rem 2rem;
+    }
+
     &__.active {
       animation: v.$shoeCard 1s ease;
     }
@@ -679,7 +836,16 @@ body {
       height: 180px;
 
       @media(min-width: 400px) {
-        height: 230px;
+        height: 200px;
+      }
+
+      @media(min-width: 1024px) {
+        cursor: pointer;
+        transition: all .8s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
 
@@ -769,6 +935,10 @@ body {
   transform: translateX(100%);
   transition: all .5s ease;
 
+  @media(min-width: 1024px) {
+    margin-top: 76px;
+  }
+
   &__close {
     position: absolute;
     top: 0;
@@ -806,12 +976,23 @@ body {
     margin: 1rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid v.$primary-color;
+
+    @media(min-width: 1024px) {
+      width: 30%;
+      margin: 1.5rem 2rem;
+    }
   }
 
   &__product-img {
     width: 100%;
     height: 50px;
     object-fit: contain;
+
+    @media(min-width: 1024px) {
+      object-fit: cover;
+      width: 70%;
+      height: 100px;
+    }
   }
 
   &__product-name {
@@ -920,6 +1101,12 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 
+  @media(min-width: 1024px) {
+    margin: 10rem 0;
+    min-height: 70vh;
+    background-image: url("/src/img/hero-section/heroImg2-big.jpg");
+  }
+
   &::after {
     position: absolute;
     content: '';
@@ -953,6 +1140,16 @@ body {
     @include m.main-gradient;
     z-index: 3;
 
+
+    @media(min-width: 768px) {
+      margin-top: 7rem;
+    }
+
+    @media(min-width: 1024px) {
+      margin-top: 10rem;
+    }
+
+
     .thin {
       font-weight: 200;
     }
@@ -970,6 +1167,15 @@ body {
     letter-spacing: 1px;
     z-index: 5;
 
+    @media(min-width: 768px) {
+      margin: 4rem 0;
+      padding: 0 6rem;
+    }
+
+    @media(min-width: 1024px) {
+      padding: 0 20rem;
+    }
+
     .important {
       color: v.$secondary-color;
       font-weight: bold;
@@ -980,6 +1186,11 @@ body {
     margin-top: 5rem;
     z-index: 3;
     padding: 4rem 1rem;
+
+
+    @media(min-width: 768px) {
+      margin-top: 8rem;
+    }
 
   }
 
@@ -1037,6 +1248,11 @@ body {
   background-color: rgba(0, 0, 0, .9);
   padding: 5rem 0;
 
+
+  @media(min-width: 768px) {
+    min-height: 30vh;
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -1053,6 +1269,10 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    @media(min-width: 768px) {
+      margin-top: 5rem;
+    }
   }
 
   &__brands-list {
@@ -1087,6 +1307,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+
+    @media(min-width: 768px) {
+      margin: 0 3rem;
+    }
   }
 
   &__contact-title {
@@ -1115,10 +1340,15 @@ body {
   }
 
   &__social-media {
-    margin-top: 1rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
+
+    @media(min-width: 768px) {
+      margin-top: 0;
+    }
   }
 
   &__social-media-title {
